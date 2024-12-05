@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.PMDM02_MAB_v01" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splashscreen_mario</item>
+        <!--<item name="android:windowSplashScreenBackground">@drawable/mario_fondo</item>-->
+        <item name="android:windowSplashScreenBackground">@color/red_DD</item>
+        <item name="android:windowSplashScreenAnimationDuration">@integer/splash_duration</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+</resources>

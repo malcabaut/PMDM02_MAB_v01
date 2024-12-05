@@ -1,0 +1,11 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo (puedes usar un color sólido o transparente si lo prefieres) -->
+    <item android:drawable="@color/white" />
+
+    <!-- Imagen centrada -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splashscreen_mario" />
+    </item>
+</layer-list>
