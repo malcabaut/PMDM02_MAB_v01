@@ -3,7 +3,6 @@
     <style name="Base.Theme.PMDM02_MAB_v01" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Para API < 31: Pongo una imagen de fondo centrada para simular la SplashScreen -->
         <item name="android:windowBackground">@drawable/splashscreen_mario_layer</item>
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.PMDM02_MAB_v01" parent="Base.Theme.PMDM02_MAB_v01" />

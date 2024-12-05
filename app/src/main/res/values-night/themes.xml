@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PMDM02_MAB_v01" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Para API < 31: Pongo una imagen de fondo centrada para simular la SplashScreen -->
+        <item name="android:windowBackground">@drawable/splashscreen_mario_layer</item>
     </style>
 </resources>
