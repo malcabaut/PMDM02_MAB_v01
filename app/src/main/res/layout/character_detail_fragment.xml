@@ -17,15 +17,13 @@
 
         <TextView
             android:id="@+id/name"
+            style="@style/H1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:text="@string/app_character_name"
-            android:fontFamily="@font/super_mario"
-            android:textSize="@dimen/text_name_size"
-            android:background="@color/T_50"
-            android:textStyle="bold" />
+
+            android:text="@string/app_character_name" />
 
 
         <FrameLayout
@@ -49,25 +47,23 @@
 
         <TextView
             android:id="@+id/description"
+            style="@style/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:text="@string/app_character_description"
-            android:fontFamily="@font/super_mario"
-            android:background="@color/T_50"
-            android:textSize="@dimen/text_description_size" />
+           />
 
         <TextView
             android:id="@+id/skills"
+            style="@style/skills"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:text="@string/app_character_skills"
-            android:background="@color/T_50"
-            android:fontFamily="@font/super_mario"
-            android:textSize="@dimen/text_skills_size" />
+             />
 
     </LinearLayout>
 
