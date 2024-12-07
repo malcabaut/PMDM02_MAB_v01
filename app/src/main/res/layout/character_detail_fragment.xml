@@ -1,46 +1,74 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_detail_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_mario"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    android:gravity="center"
-    android:background="@drawable/backgraund_mario"
     app:navGraph="@navigation/nav_graph">
 
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="250dp"
-        android:layout_height="400dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/splashscreen_mario"/>
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Character Name"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="description"
-        android:textSize="25sp"
-        android:layout_marginTop="4dp" />
-
-    <TextView
-        android:id="@+id/skills"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="skills"
-        android:textSize="20sp"
-        android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/app_character_name"
+            android:fontFamily="@font/super_mario"
+            android:textSize="@dimen/text_name_size"
+            android:background="@color/T_50"
+            android:textStyle="bold" />
 
 
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="270dp"
+            android:layout_height="420dp"
+            android:layout_gravity="center"
+            android:background="@color/T_50"
+            android:scaleType="fitCenter">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="250dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:background="@color/T_50"
+                android:scaleType="fitCenter"
+                android:layout_margin="10dp"
+                android:src="@drawable/splashscreen_mario" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/app_character_description"
+            android:fontFamily="@font/super_mario"
+            android:background="@color/T_50"
+            android:textSize="@dimen/text_description_size" />
+
+        <TextView
+            android:id="@+id/skills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/app_character_skills"
+            android:background="@color/T_50"
+            android:fontFamily="@font/super_mario"
+            android:textSize="@dimen/text_skills_size" />
+
+    </LinearLayout>
+
+</ScrollView>

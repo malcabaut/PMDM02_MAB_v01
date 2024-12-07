@@ -1,7 +1,49 @@
 <resources>
+
+    <!-- Textos app -->
     <string name="app_name">PMDM02_MAB_v01</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="detalles_del_juego">Hola</string>
-    <string name="lista_de_presonajes">Lista Personajes</string>
+    <string name="app_character_list">Lista Personajes</string>
+    <string name="app_character_name">nombre</string>
+    <string name="app_character_description">descripción</string>
+    <string name="app_character_skills">habilidades</string>
+
+    <!-- Nombres de los personajes -->
+    <string name="mario">Mario</string>
+    <string name="luigi">Luigi</string>
+    <string name="peach">Peach</string>
+    <string name="toad">Toad</string>
+    <string name="bowser">Bowser</string>
+    <string name="yoshi">Yoshi</string>
+    <string name="daisy">Daisy</string>
+    <string name="wario">Wario</string>
+    <string name="waluigi">Waluigi</string>
+    <string name="boo">Boo</string>
+    <string name="dk">Donkey Kong</string>
+
+    <!-- Descripciones de los personajes -->
+    <string name="description_mario">Mario es el héroe principal del Reino Champiñón. Es valiente, optimista y siempre dispuesto a ayudar. Se le reconoce por su overol azul, su gorra roja y su característico bigote. Es conocido por salvar a la Princesa Peach y derrotar a Bowser en múltiples ocasiones.</string>
+    <string name="description_luigi">Luigi es el hermano de Mario y un héroe en el Reino Champiñón. Se distingue por su overol verde y su gorra del mismo color. Aunque más miedoso que su hermano, siempre está dispuesto a enfrentar cualquier desafío.</string>
+    <string name="description_peach">La Princesa Peach es la líder amable y carismática del Reino Champiñón. Siempre se preocupa por sus súbditos y busca crear un mundo armonioso. Reconocida por su vestido rosa y su naturaleza bondadosa, también sabe defenderse cuando es necesario.</string>
+    <string name="description_toad">Toad es un residente fiel del Reino Champiñón y sirve a la Princesa Peach. Reconocido por su distintiva cabeza con manchas rojas, es rápido y de gran valor, siempre listo para ayudar a sus amigos.</string>
+    <string name="description_bowser">Bowser, el temible rey de los Koopas, es el archienemigo de Mario y la mayor amenaza para el Reino Champiñón. Con su apariencia de gran tamaño, su caparazón de espinas y su imponente actitud, siempre tiene planes malvados en mente.</string>
+    <string name="description_yoshi">Yoshi es un dinosaurio de la Isla de Yoshi que se ha convertido en el compañero más confiable de Mario. Es conocido por su lealtad y su increíble habilidad para comerse a los enemigos y objetos con su larga lengua.</string>
+    <string name="description_daisy">La Princesa Daisy es la alegre y valiente líder de Sarasaland. Con su vestido amarillo y su naturaleza extrovertida, se une a Mario y sus amigos en diversos deportes y aventuras. Es conocida por su gran coraje y energía.</string>
+    <string name="description_wario">Wario es el autoproclamado archienemigo de Mario. Viste un overol morado y una gorra amarilla, además de su característico bigote en zigzag. Es egoísta y busca la riqueza a toda costa.</string>
+    <string name="description_waluigi">Waluigi es el aliado y rival de Wario. Tiene una actitud despectiva hacia Mario y Luigi, y siempre está buscando formas de arruinar sus planes. Con sus largas piernas y brazos, es ágil y astuto.</string>
+    <string name="description_boo">Boo es un fantasma travieso que habita en lugares oscuros y abandonados. Aunque suele esconderse, siempre está dispuesto a hacerle la vida más difícil a los héroes del Reino Champiñón.</string>
+    <string name="description_dk">Donkey Kong es el rey de la jungla, conocido por su increíble fuerza y su amor por los plátanos. Con su corbata roja con sus iniciales y su aspecto imponente, es un defensor feroz de su territorio.</string>
+
+    <!-- Habilidades de los personajes -->
+    <string name="skills_mario">Habilidad: Salta más alto que cualquier otro, corre a gran velocidad y tiene gran resistencia.</string>
+    <string name="skills_luigi">Habilidad: Salta más alto que Mario, tiene una mayor capacidad para evitar peligros debido a su agilidad, pero es más tímido en situaciones extremas.</string>
+    <string name="skills_peach">Habilidad: Puede flotar y planear en el aire por períodos cortos. Usa magia para curarse y ayudar a otros.</string>
+    <string name="skills_toad">Habilidad: Extraordinaria velocidad y una fuerza sorprendente para su tamaño, capaz de levantar objetos más grandes que él.</string>
+    <string name="skills_bowser">Habilidad: Puede escupir fuego a gran distancia y tiene una increíble fuerza, capaz de causar temblores al golpear el suelo.</string>
+    <string name="skills_yoshi">Habilidad: Su lengua es increíblemente larga y le permite devorar frutas y enemigos, además de ser capaz de saltar muy alto.</string>
+    <string name="skills_daisy">Habilidad: Puede flotar en el aire y utilizar magia para dar apoyo a sus amigos y hacer que el ambiente se vuelva más favorable.</string>
+    <string name="skills_wario">Habilidad: Salta alto, corre rápido, y tiene una fuerza impresionante. También es experto en el uso de trucos y trampas.</string>
+    <string name="skills_waluigi">Habilidad: Usa trucos sucios para desequilibrar a sus oponentes en el campo de juego, y sus extremidades largas lo hacen muy ágil.</string>
+    <string name="skills_boo">Habilidad: Puede atravesar paredes y volverse invisible para espiar a sus enemigos sin ser detectado.</string>
+    <string name="skills_dk">Habilidad: Super fuerza, capaz de lanzar barriles y causar temblores al golpear el suelo. Su resistencia es prácticamente inigualable.</string>
+
 </resources>

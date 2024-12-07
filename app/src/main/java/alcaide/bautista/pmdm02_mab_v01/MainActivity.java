@@ -51,18 +51,39 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    // Método para manejar el clic en un juego
+    // Método para manejar el clic en un personaje
     public void characterClicked(CharacterData character, View view) {
-        // Crear un Bundle para pasar los datos al GameDetailFragment
+        // Crear un Bundle para pasar los datos al fragmento de detalles del personaje
         Bundle bundle = new Bundle();
-        bundle.putString("name", character.getName()); // Pasa el nombre del juego
 
-        bundle.putInt("image", character.getImage());  // Pasa el identificador de la imagen
-        bundle.putString("description", character.getDescription()); // Pasa la descripción o más datos que necesites
+        // Pasa el nombre del personaje
+        bundle.putString("name", character.getName());
 
-        // Navegar al GameDetailFragment con el Bundle
+        // Pasa el identificador de la imagen del personaje
+        bundle.putInt("image", character.getImage());
+
+        // Pasa la descripción del personaje
+        bundle.putString("description", character.getDescription());
+
+        // Pasa las habilidades del personaje, asegurándose de que no sea null
+        String skills = character.getSkills() != null ? character.getSkills() : "Habilidades no disponibles";
+        bundle.putString("skills", skills);
+
+        // Pasa el fondo del personaje, asegurándose de que el valor no sea 0 (lo que indicaría que no se ha establecido)
+        int background = character.getBackground() != 0 ? character.getBackground() : R.drawable.background_mario;
+        bundle.putInt("background", background);
+
+        // Log para depuración, asegurarse de que los datos estén correctamente preparados
+        Log.d("CharacterDetail", "Navigating with character: " + character.getName() +
+                " Image: " + character.getImage() +
+                " Description: " + character.getDescription() +
+                " Skills: " + skills +
+                " Background: " + background);
+
+        // Navegar al fragmento de detalles del personaje con el Bundle
         Navigation.findNavController(view).navigate(R.id.characterDetailFragment, bundle);
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         // Utiliza el método navigateUp del NavController

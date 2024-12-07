@@ -1,6 +1,5 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
-import static java.lang.Thread.sleep;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -54,7 +53,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
             view.setBackgroundColor(context.getResources().getColor(R.color.colorToque));  // Color de fondo al tocar
 
             // Animación de escala para el toque
-            view.animate().scaleX(0.95f).scaleY(0.95f).setDuration(250).withEndAction(() -> {
+            view.animate().scaleX(0.90f).scaleY(0.90f).setDuration(250).withEndAction(() -> {
                 // Después de la animación, restauramos la escala al tamaño original
                 view.animate().scaleX(1f).scaleY(1f).setDuration(100);
             });
@@ -80,7 +79,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
         // Usamos MediaPlayer para reproducir el sonido
         if (character.getSound() != null && !character.getSound().isEmpty()) {
             // Obtener el primer sonido de la lista
-            int soundResId = character.getSound().get(0); // Usamos el primer sonido de la lista
+            int soundResId = character.getRandomSound(); // Usamos el primer sonido de la lista
 
             // Reproducir el sonido
             MediaPlayer mediaPlayer = MediaPlayer.create(context, soundResId);
