@@ -3,5 +3,6 @@
     <dimen name="text_name_size">60sp</dimen>
     <dimen name="text_description_size">25dp</dimen>
     <dimen name="text_skills_size">20dp</dimen>
+    <dimen name="text_padding">5dp</dimen>
 
 </resources>

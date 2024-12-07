@@ -9,10 +9,15 @@
     <fragment
         android:id="@+id/characterDetailFragment"
         android:name="alcaide.bautista.pmdm02_mab_v01.CharacterDetailFragment"
-        android:label="Character Detail Fragment" />
+        android:label="CharacterDetailFragment"
+        tools:layout="@layout/character_detail_fragment"
+
+        />
     <fragment
         android:id="@+id/characterListFragment"
         android:name="alcaide.bautista.pmdm02_mab_v01.CharacterListFragment"
-        android:label="CharacterListFragment" />
+        android:label="CharacterListFragment"
+        tools:layout="@layout/character_list_fragment"
+        />
 </navigation>
 
