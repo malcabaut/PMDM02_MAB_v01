@@ -4,6 +4,7 @@ import static androidx.core.app.PendingIntentCompat.getActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 
 import alcaide.bautista.pmdm02_mab_v01.databinding.ActivityMainBinding;
@@ -23,28 +26,36 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Configura el Toolbar como el ActionBar
-        Toolbar toolbar = findViewById(R.id.toolbar); // Asegúrate de que tienes un Toolbar en tu layout
+        // Vincular la Toolbar al NavController
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Configurar el título del ActionBar
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle("Nuevo Título");
-        }
+
 
         // Configura del controlador de navegación.
         FragmentManager fragmentManager = getSupportFragmentManager();
         NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
+            // Vincular la Toolbar al NavController
+            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
+                    .build();
+            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         }
 
     }
