@@ -4,15 +4,15 @@ import java.util.List;
 
 public class CharacterData {
 
-    private final String image;
+    private final int image;
     private final String name;
     private final String description;
     private final String skills;
-    private final List<String> sound;
-    private final String background;
+    private final List<Integer> sound;
+    private final int background;
 
     // Constructor
-    public CharacterData(String image, String name, String description, String skills, List<String> sound, String background) {
+    public CharacterData(int image, String name, String description, String skills, List<Integer> sound, int background) {
         this.image = image;
         this.name = name;
         this.description = description;
@@ -21,7 +21,7 @@ public class CharacterData {
         this.background = background;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
@@ -37,11 +37,11 @@ public class CharacterData {
         return skills;
     }
 
-    public List<String> getSound() {
+    public List<Integer> getSound() {
         return sound;
     }
 
-    public String getBackground() {
+    public int getBackground() {
         return background;
     }
 }

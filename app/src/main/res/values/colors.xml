@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red_DD">#DD0000</color>
+    <color name="colorToque">#FFDDC1</color> <!-- Color suave para simular el toque -->
 </resources>

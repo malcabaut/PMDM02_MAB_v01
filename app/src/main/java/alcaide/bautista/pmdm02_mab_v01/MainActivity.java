@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("name", character.getName()); // Pasa el nombre del juego
 
-        bundle.putString("image", character.getImage()); // Pasa la imagen del juego
+        bundle.putInt("image", character.getImage());  // Pasa el identificador de la imagen
         bundle.putString("description", character.getDescription()); // Pasa la descripción o más datos que necesites
 
         // Navegar al GameDetailFragment con el Bundle

@@ -1,5 +1,7 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
+import android.graphics.drawable.Drawable;
+
 import androidx.recyclerview.widget.RecyclerView;
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterCardviewBinding;
 
@@ -13,7 +15,9 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind (CharacterData characters){
+        binding.image.setImageResource(characters.getImage());
         binding.name.setText(characters.getName());
+        binding.description.setText(characters.getDescription());
         binding.executePendingBindings();
     }
 

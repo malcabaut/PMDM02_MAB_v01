@@ -34,9 +34,7 @@ public class CharacterDetailFragment extends Fragment {
         if (getArguments() != null) {
             String image = getArguments().getString("image");
             String name = getArguments().getString("name");
-            String releaseYear = getArguments().getString("releaseYear");
             String description = getArguments().getString("description");
-            String platforms = getArguments().getString("platforms");
 
             binding.name.setText(name);
             binding.description.setText(description);
