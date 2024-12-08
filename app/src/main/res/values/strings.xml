@@ -7,6 +7,7 @@
     <string name="app_character_description">descripción</string>
     <string name="app_character_skills">habilidades</string>
     <string name="app_about">Acerca de...</string>
+    <string name="app_about_info"> <![CDATA[Aplicación desarrollada por <b>Miguel Alcaide Bautista</b>.<br>Versión 0.80]]></string>
 
     <!-- Nombres de los personajes -->
     <string name="mario">Mario</string>

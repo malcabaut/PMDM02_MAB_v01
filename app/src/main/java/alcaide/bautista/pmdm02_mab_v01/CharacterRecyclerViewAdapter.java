@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -51,7 +52,9 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
         holder.itemView.setOnClickListener(view -> {
             view.setEnabled(false);//// Deshabilitar la interacción si no esta puede dar fallo si se cliquea muy rapido
             // Cambiar el fondo al hacer clic para simular un "toque"
-            view.setBackgroundColor(context.getResources().getColor(R.color.colorToque));  // Color de fondo al tocar
+            // Cambiar el fondo al hacer clic para simular un "toque"
+            view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorToque));  // Color de fondo al tocar
+
 
             // Animación de escala para el toque
             view.animate().scaleX(0.90f).scaleY(0.90f).setDuration(250).withEndAction(() -> {
@@ -60,7 +63,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
             });
 
             // Devolver el color de fondo original después de un pequeño retraso (simulando un "toque" rápido)
-            view.postDelayed(() -> view.setBackgroundColor(context.getResources().getColor(android.R.color.transparent)), 200); // Vuelve al color original después de 200 ms
+            view.postDelayed(() -> view.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent)), 200); // Vuelve al color original después de 200 ms
 
             // Reproducir el sonido asociado al personaje
             playCharacterSound(currentCharacter);
@@ -87,7 +90,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
             mediaPlayer.start();
 
             // Libera el MediaPlayer cuando haya terminado de reproducir el sonido
-            mediaPlayer.setOnCompletionListener(mp -> mp.release());
+            mediaPlayer.setOnCompletionListener(MediaPlayer::release);
         }
     }
 

@@ -1,6 +1,7 @@
 package alcaide.bautista.pmdm02_mab_v01;
+import static java.util.Objects.requireNonNull;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ public class CharacterListFragment extends Fragment {
 
     private CharacterListFragmentBinding binding;
     private ArrayList<CharacterData> characters;
-    private CharacterRecyclerViewAdapter adapter;
 
 
     @Nullable
@@ -38,7 +38,7 @@ public class CharacterListFragment extends Fragment {
         loadCharacters();
 
 
-        adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
+        CharacterRecyclerViewAdapter adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
         binding.charactersRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.charactersRecyclerview.setAdapter(adapter);
 
@@ -46,14 +46,14 @@ public class CharacterListFragment extends Fragment {
     }
 
     private void loadCharacters() {
-        characters = new ArrayList<CharacterData>();
+        characters = new ArrayList<>();
 
         characters.add(new CharacterData(
                 R.drawable.mario, // Imagen
                 getString(R.string.mario), // Nombre
                 getString(R.string.description_mario), // Descripción
                 getString(R.string.skills_mario), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_mario_0, R.raw.sound_mario_1, R.raw.sound_mario_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_mario_0, R.raw.sound_mario_1, R.raw.sound_mario_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_mario // Fondo
         ));
 
@@ -62,7 +62,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.luigi), // Nombre
                 getString(R.string.description_luigi), // Descripción
                 getString(R.string.skills_luigi), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_luigi_0, R.raw.sound_luigi_1, R.raw.sound_luigi_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_luigi_0, R.raw.sound_luigi_1, R.raw.sound_luigi_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_luigi // Fondo
         ));
 
@@ -71,7 +71,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.peach), // Nombre
                 getString(R.string.description_peach), // Descripción
                 getString(R.string.skills_peach), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_peach_0, R.raw.sound_peach_1, R.raw.sound_peach_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_peach_0, R.raw.sound_peach_1, R.raw.sound_peach_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_peach // Fondo
         ));
 
@@ -80,7 +80,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.toad), // Nombre
                 getString(R.string.description_toad), // Descripción
                 getString(R.string.skills_toad), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_toad_0, R.raw.sound_peach_1, R.raw.sound_peach_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_toad_0, R.raw.sound_toad_1)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_toad // Fondo
         ));
 
@@ -89,7 +89,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.bowser), // Nombre
                 getString(R.string.description_bowser), // Descripción
                 getString(R.string.skills_bowser), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_bowser_0, R.raw.sound_bowser_1, R.raw.sound_bowser_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_bowser_0, R.raw.sound_bowser_1, R.raw.sound_bowser_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_bowser // Fondo
         ));
 
@@ -98,7 +98,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.yoshi), // Nombre
                 getString(R.string.description_yoshi), // Descripción
                 getString(R.string.skills_yoshi), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_yoshi_0, R.raw.sound_yoshi_1, R.raw.sound_yoshi_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_yoshi_0, R.raw.sound_yoshi_1, R.raw.sound_yoshi_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_yoshi // Fondo
         ));
 
@@ -107,7 +107,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.daisy), // Nombre
                 getString(R.string.description_daisy), // Descripción
                 getString(R.string.skills_daisy), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_daisy_0, R.raw.sound_daisy_1)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_daisy_0, R.raw.sound_daisy_1)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_daisy // Fondo
         ));
 
@@ -116,7 +116,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.wario), // Nombre
                 getString(R.string.description_wario), // Descripción
                 getString(R.string.skills_wario), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_wario_0, R.raw.sound_wario_1, R.raw.sound_wario_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_wario_0, R.raw.sound_wario_1, R.raw.sound_wario_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_wario // Fondo
         ));
 
@@ -125,7 +125,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.waluigi), // Nombre
                 getString(R.string.description_waluigi), // Descripción
                 getString(R.string.skills_waluigi), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_waluigi_0, R.raw.sound_waluigi_1, R.raw.sound_waluigi_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_waluigi_0, R.raw.sound_waluigi_1, R.raw.sound_waluigi_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_waluigi // Fondo
         ));
 
@@ -134,7 +134,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.boo), // Nombre
                 getString(R.string.description_boo), // Descripción
                 getString(R.string.skills_boo), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_boo_0, R.raw.sound_boo_2)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_boo_0, R.raw.sound_boo_2)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_boo // Fondo
         ));
 
@@ -143,7 +143,7 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.dk), // Nombre
                 getString(R.string.description_dk), // Descripción
                 getString(R.string.skills_dk), // Habilidades
-                new ArrayList<Integer>(Arrays.asList(R.raw.sound_donkey_kong_0, R.raw.sound_donkey_kong_1)), // Lista de sonidos con identificadores de recursos
+                new ArrayList<>(Arrays.asList(R.raw.sound_donkey_kong_0, R.raw.sound_donkey_kong_1)), // Lista de sonidos con identificadores de recursos
                 R.drawable.background_dk // Fondo
         ));
     }
@@ -155,7 +155,7 @@ public class CharacterListFragment extends Fragment {
         super.onStart();
         // Cambia el título del ActionBar
         if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ArrrMarinero");
+            requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(R.string.app_character_list);
         }
     }
 }

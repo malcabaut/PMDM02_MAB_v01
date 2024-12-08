@@ -7,7 +7,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-
-import java.util.Objects;
 import java.util.Random;
 
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterDetailFragmentBinding;
@@ -31,7 +28,6 @@ public class CharacterDetailFragment extends Fragment {
     private int[] soundArray; // Array para almacenar los sonidos
     private String characterName; // Nombre del personaje
     private static final String DK_NAME = "Donkey Kong"; // Nombre específico del personaje DK (debe coincidir con tu String)
-    private GestureDetector gestureDetector;
 
     @Nullable
     @Override
@@ -78,7 +74,7 @@ public class CharacterDetailFragment extends Fragment {
             requireNonNull(binding.image).setOnTouchListener(this::onTouch);
 
             // Configurar evento de clic en la imagen
-            //binding.image.setOnClickListener(v -> playRandomSound());
+            binding.image.setOnClickListener(v -> playRandomSound());
         }
     }
 
@@ -87,7 +83,7 @@ public class CharacterDetailFragment extends Fragment {
         super.onStart();
         // Cambia el título del ActionBar
         if (getActivity() != null) {
-            requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(R.string.app_character_list);
+            requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(R.string.app_character_description);
         }
     }
 
@@ -129,7 +125,7 @@ public class CharacterDetailFragment extends Fragment {
         Uri videoUri = Uri.parse("android.resource://" + requireContext().getPackageName() + "/" + R.raw.easter_egg_01);
         binding.videoView.setVideoURI(videoUri);
 
-        binding.videoView.setOnPreparedListener(mp -> mp.start());
+        binding.videoView.setOnPreparedListener(MediaPlayer::start);
         binding.videoView.setOnCompletionListener(mp -> {
             binding.videoView.setVisibility(View.GONE); // Ocultar el VideoView después de terminar
         });
