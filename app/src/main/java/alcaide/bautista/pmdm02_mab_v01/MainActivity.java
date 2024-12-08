@@ -1,23 +1,16 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
-import static androidx.core.app.PendingIntentCompat.getActivity;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 
 import alcaide.bautista.pmdm02_mab_v01.databinding.ActivityMainBinding;
 
@@ -42,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Vincular la Toolbar al NavController
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        setSupportActionBar(binding.toolbar);
 
 
         // Configura del controlador de navegación.
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
+        // Configura el controlador de navegación usando binding
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(binding.navHostFragment.getId());
+
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
             // Vincular la Toolbar al NavController
@@ -59,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 
     // Método para manejar el clic en un personaje
@@ -84,12 +75,14 @@ public class MainActivity extends AppCompatActivity {
         int background = character.getBackground() != 0 ? character.getBackground() : R.drawable.background_mario;
         bundle.putInt("background", background);
 
-        // Log para depuración, asegurarse de que los datos estén correctamente preparados
-        Log.d("CharacterDetail", "Navigating with character: " + character.getName() +
-                " Image: " + character.getImage() +
-                " Description: " + character.getDescription() +
-                " Skills: " + skills +
-                " Background: " + background);
+        // Pasa la lista de sonidos como un array de enteros
+        if (character.getSound() != null && !character.getSound().isEmpty()) {
+            int[] soundArray = new int[character.getSound().size()];
+            for (int i = 0; i < character.getSound().size(); i++) {
+                soundArray[i] = character.getSound().get(i);
+            }
+            bundle.putIntArray("sounds", soundArray);
+        }
 
         // Navegar al fragmento de detalles del personaje con el Bundle
         Navigation.findNavController(view).navigate(R.id.characterDetailFragment, bundle);

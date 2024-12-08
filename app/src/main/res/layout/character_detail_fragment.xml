@@ -1,66 +1,74 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item_detail_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_mario"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="10dp"
-    app:navGraph="@navigation/nav_graph">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- ScrollView con el contenido principal -->
+    <ScrollView
+        android:id="@+id/item_detail_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@drawable/background_mario"
+        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/name"
-            style="@style/H1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/app_character_name" />
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/name"
+                style="@style/H1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/app_character_name" />
 
-        <FrameLayout
-            android:layout_width="270dp"
-            android:layout_height="420dp"
-            android:layout_gravity="center"
-            android:background="@color/T_50"
-            android:scaleType="fitCenter">
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="250dp"
-                android:layout_height="400dp"
+            <FrameLayout
+                android:layout_width="270dp"
+                android:layout_height="420dp"
                 android:layout_gravity="center"
                 android:background="@color/T_50"
-                android:scaleType="fitCenter"
+                android:scaleType="fitCenter">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="250dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/characters" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:src="@drawable/characters" />
+                android:text="@string/app_character_description" />
 
-        </FrameLayout>
+            <TextView
+                android:id="@+id/skills"
+                style="@style/skills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/app_character_skills" />
 
-        <TextView
-            android:id="@+id/description"
-            style="@style/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/app_character_description"
-           />
+        </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/skills"
-            style="@style/skills"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/app_character_skills"
-             />
+    <!-- VideoView para el Easter Egg, colocado por encima de todo -->
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:padding="10dp"
+        />
 
-    </LinearLayout>
-
-</ScrollView>
+</FrameLayout>

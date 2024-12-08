@@ -49,6 +49,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
 
 // Manejo del evento de clic
         holder.itemView.setOnClickListener(view -> {
+            view.setEnabled(false);//// Deshabilitar la interacción si no esta puede dar fallo si se cliquea muy rapido
             // Cambiar el fondo al hacer clic para simular un "toque"
             view.setBackgroundColor(context.getResources().getColor(R.color.colorToque));  // Color de fondo al tocar
 

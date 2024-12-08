@@ -1,8 +1,15 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
+import static java.util.Objects.*;
+
+import android.annotation.SuppressLint;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,12 +19,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import java.util.Objects;
+import java.util.Random;
+
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterDetailFragmentBinding;
 
 
 public class CharacterDetailFragment extends Fragment {
 
     private CharacterDetailFragmentBinding binding;
+    private int[] soundArray; // Array para almacenar los sonidos
+    private String characterName; // Nombre del personaje
+    private static final String DK_NAME = "Donkey Kong"; // Nombre específico del personaje DK (debe coincidir con tu String)
+    private GestureDetector gestureDetector;
 
     @Nullable
     @Override
@@ -27,6 +41,7 @@ public class CharacterDetailFragment extends Fragment {
         return binding.getRoot();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -42,9 +57,12 @@ public class CharacterDetailFragment extends Fragment {
 
             int image = getArguments().getInt("image");
             String name = getArguments().getString("name");
+            characterName = name;
             String description = getArguments().getString("description");
             String skill = getArguments().getString("skills");
             int background = getArguments().getInt("background");  // Obtener el fondo del personaje
+            // Recuperar el array de sonidos desde los argumentos
+            soundArray = getArguments().getIntArray("sounds");
 
             // Establecer los valores en los elementos del layout
             binding.image.setImageResource(image);
@@ -57,6 +75,10 @@ public class CharacterDetailFragment extends Fragment {
 
             binding.itemDetailFragment.setBackgroundResource(background);
 
+            requireNonNull(binding.image).setOnTouchListener(this::onTouch);
+
+            // Configurar evento de clic en la imagen
+            //binding.image.setOnClickListener(v -> playRandomSound());
         }
     }
 
@@ -65,7 +87,60 @@ public class CharacterDetailFragment extends Fragment {
         super.onStart();
         // Cambia el título del ActionBar
         if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("hola");
+            requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(R.string.app_character_list);
         }
+    }
+
+
+    // Manejar el toque con dos dedos
+    private void handleDoubleTouch() {
+        if (characterName != null && characterName.equalsIgnoreCase(DK_NAME)) {
+            playEasterEggVideo(); // Reproducir el video si el personaje es DK
+            Log.d("CharacterDetail", "El personaje es:"+characterName);
+        } else {
+            Log.d("CharacterDetail", "El personaje no es DK. Toque ignorado.");
+        }
+    }
+
+    // Método para reproducir un sonido aleatorio
+    private void playRandomSound() {
+        if (soundArray != null && soundArray.length > 0) {
+            // Seleccionar un sonido aleatorio
+            int randomSound = soundArray[new Random().nextInt(soundArray.length)];
+
+            // Crear el reproductor de sonido
+            MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), randomSound);
+
+            // Iniciar la reproducción
+            mediaPlayer.start();
+
+            // Liberar el reproductor una vez que termine de reproducir
+            mediaPlayer.setOnCompletionListener(MediaPlayer::release);
+        } else {
+            Log.w("CharacterDetail", "No hay sonidos disponibles para reproducir.");
+        }
+    }
+
+    // Método para reproducir el video
+    private void playEasterEggVideo() {
+        Log.d("CharacterDetail", "Reproduciendo video del Easter Egg para DK.");
+        binding.videoView.setVisibility(View.VISIBLE); // Asegúrate de tener el VideoView en tu layout
+
+        Uri videoUri = Uri.parse("android.resource://" + requireContext().getPackageName() + "/" + R.raw.easter_egg_01);
+        binding.videoView.setVideoURI(videoUri);
+
+        binding.videoView.setOnPreparedListener(mp -> mp.start());
+        binding.videoView.setOnCompletionListener(mp -> {
+            binding.videoView.setVisibility(View.GONE); // Ocultar el VideoView después de terminar
+        });
+    }
+
+    private boolean onTouch(View v, MotionEvent event) {
+        if (event.getPointerCount() == 2 && event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN) {
+            handleDoubleTouch(); // Aquí manejas el toque con 2 dedos
+            v.performClick(); // Llamamos a performClick para manejar la accesibilidad
+            return true;
+        }
+        return false;
     }
 }
