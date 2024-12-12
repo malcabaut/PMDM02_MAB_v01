@@ -6,12 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 import androidx.core.text.HtmlCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+// Comprobar el idioma guardado
+        String savedLanguage = PreferencesHelper.getLanguage(this);
+        Toast.makeText(this, "Idioma guardado: " + savedLanguage, Toast.LENGTH_SHORT).show();
+
+// Cambiar el idioma de la aplicación basado en el idioma guardado
+        LocaleListCompat appLocales = LocaleListCompat.forLanguageTags(savedLanguage);
+        AppCompatDelegate.setApplicationLocales(appLocales);
+
 
         // Configuración de ViewBinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -66,19 +77,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureMenuInteraction() {
+        // Configurar el listener para los elementos del menú lateral
         binding.navView.setNavigationItemSelectedListener(menuItem -> {
-            if (menuItem.getItemId() != navController.getCurrentDestination().getId()) {
-                navController.navigate(menuItem.getItemId());
+            if (menuItem.getItemId() == R.id.nav_home) {
+                navController.navigate(R.id.characterListFragment);
             }
+            // Cerrar el menú lateral después de seleccionar un ítem
             binding.drawerLayout.closeDrawers();
             return true;
         });
 
-        // Opcional: Configurar interacciones del header
+        // Configurar el SwitchCompat para cambiar el idioma
         View headerView = binding.navView.getHeaderView(0);
-        ImageView profileImageView = headerView.findViewById(R.id.header_image);
-        // Agrega lógica si necesitas usar esta vista
+
+        // Encuentra el SwitchCompat dentro del item personalizado
+        MenuItem switchLanguageItem = binding.navView.getMenu().findItem(R.id.nav_switch_language);
+        View actionView = switchLanguageItem.getActionView();
+        androidx.appcompat.widget.SwitchCompat switchLanguage = actionView.findViewById(R.id.switch_language);
+
+        // Configurar el estado inicial del SwitchCompat basado en las preferencias guardadas
+        String currentLanguage = PreferencesHelper.getLanguage(this);
+        switchLanguage.setChecked(currentLanguage.equals("en")); // Inglés si está activado
+
+        // Listener para cambios en el SwitchCompat
+        switchLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // Guardar la preferencia de idioma
+            PreferencesHelper.setLanguage(this, isChecked);
+
+            // Mostrar un mensaje al usuario
+            String language = isChecked ? "Inglés" : "Español";
+            Toast.makeText(this, "Idioma cambiado a: " + language, Toast.LENGTH_SHORT).show();
+
+            // Reiniciar la actividad para reflejar el cambio de idioma (opcional)
+            recreate();
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
