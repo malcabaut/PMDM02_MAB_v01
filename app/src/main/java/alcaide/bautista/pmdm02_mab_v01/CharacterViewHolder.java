@@ -1,7 +1,5 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
-import android.graphics.drawable.Drawable;
-
 import androidx.recyclerview.widget.RecyclerView;
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterCardviewBinding;
 

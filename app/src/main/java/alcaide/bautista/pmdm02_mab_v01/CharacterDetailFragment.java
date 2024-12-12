@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import java.util.Random;
 
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterDetailFragmentBinding;
-
 
 public class CharacterDetailFragment extends Fragment {
 
@@ -41,6 +39,7 @@ public class CharacterDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         // Obtener datos del argumento que inicia este fragmento
         if (getArguments() != null) {
@@ -88,6 +87,8 @@ public class CharacterDetailFragment extends Fragment {
     }
 
 
+
+
     // Manejar el toque con dos dedos
     private void handleDoubleTouch() {
         if (characterName != null && characterName.equalsIgnoreCase(DK_NAME)) {
@@ -97,21 +98,17 @@ public class CharacterDetailFragment extends Fragment {
             Log.d("CharacterDetail", "El personaje no es DK. Toque ignorado.");
         }
     }
-
+    private MediaPlayer mediaPlayer;
     // Método para reproducir un sonido aleatorio
     private void playRandomSound() {
         if (soundArray != null && soundArray.length > 0) {
-            // Seleccionar un sonido aleatorio
             int randomSound = soundArray[new Random().nextInt(soundArray.length)];
-
-            // Crear el reproductor de sonido
-            MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), randomSound);
-
-            // Iniciar la reproducción
+            if (mediaPlayer != null) {
+                mediaPlayer.release();  // Liberar el media player anterior
+            }
+            mediaPlayer = MediaPlayer.create(getContext(), randomSound);
             mediaPlayer.start();
-
-            // Liberar el reproductor una vez que termine de reproducir
-            mediaPlayer.setOnCompletionListener(MediaPlayer::release);
+            mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
         } else {
             Log.w("CharacterDetail", "No hay sonidos disponibles para reproducir.");
         }

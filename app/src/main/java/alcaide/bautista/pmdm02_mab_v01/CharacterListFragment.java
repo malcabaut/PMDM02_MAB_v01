@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,6 +30,9 @@ public class CharacterListFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = CharacterListFragmentBinding.inflate(inflater, container, false);
+
+        // Mostrar el Snackbar cuando se cargue la lista
+        Snackbar.make(binding.getRoot(), "Bienvenidos al mundo de Mario", Snackbar.LENGTH_SHORT).show();
         return binding.getRoot();
     }
 

@@ -11,8 +11,8 @@
         android:name="alcaide.bautista.pmdm02_mab_v01.CharacterDetailFragment"
         android:label="CharacterDetailFragment"
         tools:layout="@layout/character_detail_fragment"
-
         />
+
     <fragment
         android:id="@+id/characterListFragment"
         android:name="alcaide.bautista.pmdm02_mab_v01.CharacterListFragment"
@@ -23,5 +23,6 @@
             android:id="@+id/action_characterListFragment_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />
     </fragment>
+
 </navigation>
 

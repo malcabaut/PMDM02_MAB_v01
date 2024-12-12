@@ -4,9 +4,11 @@ package alcaide.bautista.pmdm02_mab_v01;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -52,9 +54,10 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
         holder.itemView.setOnClickListener(view -> {
             view.setEnabled(false);//// Deshabilitar la interacción si no esta puede dar fallo si se cliquea muy rapido
             // Cambiar el fondo al hacer clic para simular un "toque"
-            // Cambiar el fondo al hacer clic para simular un "toque"
             view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorToque));  // Color de fondo al tocar
 
+            // Mostrar el Toast con el nombre del personaje
+            Toast.makeText(context, "Se ha seleccionado el personaje " + currentCharacter.getName(), Toast.LENGTH_SHORT).show();
 
             // Animación de escala para el toque
             view.animate().scaleX(0.90f).scaleY(0.90f).setDuration(250).withEndAction(() -> {
@@ -69,10 +72,10 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
             playCharacterSound(currentCharacter);
 
             // Usamos un Handler para retrasar la transición después de las animaciones
-            new Handler().postDelayed(() -> {
-                // Llamar al método de la actividad principal con el personaje y la vista
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
                 itemClicked(currentCharacter, view);
             }, 500);  // Retrasar 400 ms para esperar que las animaciones hayan terminado
+
         });
 
 

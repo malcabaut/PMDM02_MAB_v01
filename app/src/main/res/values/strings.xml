@@ -8,6 +8,8 @@
     <string name="app_character_skills">habilidades</string>
     <string name="app_about">Acerca de...</string>
     <string name="app_about_info"> <![CDATA[Aplicación desarrollada por <b>Miguel Alcaide Bautista</b>.<br>Versión 0.80]]></string>
+    <string name="app_open_drawer">Abrir menú</string>
+    <string name="app_close_drawer">Cerrar menú</string>
 
     <!-- Nombres de los personajes -->
     <string name="mario">Mario</string>
@@ -47,5 +49,6 @@
     <string name="skills_waluigi">Habilidad: Usa trucos sucios para desequilibrar a sus oponentes en el campo de juego, y sus extremidades largas lo hacen muy ágil.</string>
     <string name="skills_boo">Habilidad: Puede atravesar paredes y volverse invisible para espiar a sus enemigos sin ser detectado.</string>
     <string name="skills_dk">Habilidad: Super fuerza, capaz de lanzar barriles y causar temblores al golpear el suelo. Su resistencia es prácticamente inigualable.</string>
+
 
 </resources>

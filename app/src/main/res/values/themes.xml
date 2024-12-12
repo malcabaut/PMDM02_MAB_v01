@@ -5,21 +5,11 @@
         <item name="android:windowBackground">@drawable/splashscreen_mario_layer</item>
     </style>
 
-    <style name="MyMenuTextStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+    <style name="MyMenuTextStyle" parent="Theme.Material3.DayNight">
+        <item name="android:background">@drawable/pipe_06</item>
         <item name="android:fontFamily">@font/super_mario</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/T_cc</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">0</item>
-        <item name="android:shadowRadius">4</item>
-        <item name="android:shadowColor">#FFFFFF</item>
     </style>
 
-    <style name="PopupMenuStyle" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textColor">@color/T_cc</item>
-        <item name="android:fontFamily">@font/super_mario</item>
-        <item name="android:textSize">@dimen/text_description_size</item>
-    </style>
 
     <style name="Theme.PMDM02_MAB_v01" parent="Base.Theme.PMDM02_MAB_v01" />
 </resources>
