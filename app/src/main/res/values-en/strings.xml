@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App texts -->
+    <string name="app_name">PMDM02 MAB v01</string>
+    <string name="app_character_list">Character List</string>
+    <string name="app_character_name">name</string>
+    <string name="app_character_description">description</string>
+    <string name="app_character_skills">skills</string>
+    <string name="app_about">About...</string>
+    <string name="app_about_info"> <![CDATA[App developed by <b>Miguel Alcaide Bautista</b>.<br>Version 0.80]]></string>
+    <string name="app_open_drawer">Open menu</string>
+    <string name="app_close_drawer">Close menu</string>
+    <string name="app_change_language">Switch to English</string>
+    <string name="app_select_character">The character has been selected </string>
+    <string name="welcome_message">Welcome to the world of Mario</string>
+
+
+    <!-- Character names -->
+    <string name="mario">Mario</string>
+    <string name="luigi">Luigi</string>
+    <string name="peach">Peach</string>
+    <string name="toad">Toad</string>
+    <string name="bowser">Bowser</string>
+    <string name="yoshi">Yoshi</string>
+    <string name="daisy">Daisy</string>
+    <string name="wario">Wario</string>
+    <string name="waluigi">Waluigi</string>
+    <string name="boo">Boo</string>
+    <string name="dk">Donkey Kong</string>
+
+        <!-- Character descriptions -->
+        <string name="description_mario">Mario is the main hero of the Mushroom Kingdom. He is brave, optimistic, and always ready to help. Recognized by his blue overalls, red cap, and characteristic mustache, he is known for saving Princess Peach and defeating Bowser multiple times.</string>
+        <string name="description_luigi">Luigi is Mario´s brother and a hero in the Mushroom Kingdom. He is distinguished by his green overalls and matching cap. Although more fearful than his brother, he is always ready to face any challenge.</string>
+        <string name="description_peach">Princess Peach is the kind and charismatic leader of the Mushroom Kingdom. She always cares for her subjects and seeks to create a harmonious world. Known for her pink dress and kind nature, she also knows how to defend herself when necessary.</string>
+        <string name="description_toad">Toad is a loyal resident of the Mushroom Kingdom and serves Princess Peach. Recognized by his distinctive red-spotted head, he is fast and brave, always ready to help his friends.</string>
+        <string name="description_bowser">Bowser, the fearsome king of the Koopas, is Mario´s arch-nemesis and the greatest threat to the Mushroom Kingdom. With his large size, spiked shell, and imposing attitude, he is always plotting evil schemes.</string>
+        <string name="description_yoshi">Yoshi is a dinosaur from Yoshi´s Island who has become Mario´s most reliable companion. He is known for his loyalty and his incredible ability to eat enemies and objects with his long tongue.</string>
+        <string name="description_daisy">Princess Daisy is the cheerful and brave leader of Sarasaland. With her yellow dress and extroverted nature, she joins Mario and his friends in various sports and adventures. She is known for her great courage and energy.</string>
+        <string name="description_wario">Wario is the self-proclaimed arch-nemesis of Mario. He wears purple overalls and a yellow cap, along with his characteristic zigzag mustache. He is selfish and seeks wealth at any cost.</string>
+        <string name="description_waluigi">Waluigi is Wario´s ally and rival. He has a disdainful attitude towards Mario and Luigi and is always looking for ways to ruin their plans. With his long legs and arms, he is agile and cunning.</string>
+        <string name="description_boo">Boo is a mischievous ghost who haunts dark, abandoned places. Although he tends to hide, he is always ready to make life more difficult for the heroes of the Mushroom Kingdom.</string>
+        <string name="description_dk">Donkey Kong is the king of the jungle, known for his incredible strength and love of bananas. With his red tie with his initials and imposing appearance, he is a fierce defender of his territory.</string>
+
+    <!-- Character skills -->
+    <string name="skills_mario">Skill: Jumps higher than anyone else, runs at great speed, and has great endurance.</string>
+    <string name="skills_luigi">Skill: Jumps higher than Mario, has greater ability to avoid danger due to his agility, but is more timid in extreme situations.</string>
+    <string name="skills_peach">Skill: Can float and glide in the air for short periods. Uses magic to heal and help others.</string>
+    <string name="skills_toad">Skill: Extraordinary speed and surprising strength for his size, able to lift objects larger than himself.</string>
+    <string name="skills_bowser">Skill: Can spit fire over long distances and has incredible strength, capable of causing tremors when hitting the ground.</string>
+    <string name="skills_yoshi">Skill: His tongue is incredibly long, allowing him to devour fruits and enemies, and he can also jump very high.</string>
+    <string name="skills_daisy">Skill: Can float in the air and use magic to support her friends and make the environment more favorable.</string>
+    <string name="skills_wario">Skill: Jumps high, runs fast, and has impressive strength. Also an expert in using tricks and traps.</string>
+    <string name="skills_waluigi">Skill: Uses dirty tricks to destabilize his opponents on the field, and his long limbs make him very agile.</string>
+    <string name="skills_boo">Skill: Can pass through walls and become invisible to spy on enemies without being detected.</string>
+    <string name="skills_dk">Skill: Super strength, able to throw barrels and cause tremors when hitting the ground. His endurance is practically unmatched.</string>
+
+</resources>

@@ -2,7 +2,6 @@ package alcaide.bautista.pmdm02_mab_v01;
 
 import android.os.Bundle;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.text.HtmlCompat;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -60,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Configurar el ActionBarDrawerToggle (icono hamburguesa)
-       //configureToggleMenu();
+       configureToggleMenu();
 
         // Configurar eventos para las interacciones con el menú lateral
-        //configureMenuInteraction();
+        configureMenuInteraction();
     }
 
 
@@ -217,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("description", character.getDescription());
         bundle.putString("skills", character.getSkills());
         bundle.putInt("background", character.getBackground() != 0 ? character.getBackground() : R.drawable.characters);
-
 
         // Si el personaje tiene sonidos asociados, agregarlos al bundle
         if (character.getSound() != null && !character.getSound().isEmpty()) {

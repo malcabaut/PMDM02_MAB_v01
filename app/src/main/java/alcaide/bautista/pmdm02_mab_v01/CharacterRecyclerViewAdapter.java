@@ -24,7 +24,7 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
     private final Context context; // Contexto para usar en el evento de clic
 
     // Constructor que recibe la lista de personajes y el contexto
-    public CharacterRecyclerViewAdapter(ArrayList<CharacterData> characters, Context context){
+    public CharacterRecyclerViewAdapter(ArrayList<CharacterData> characters, Context context) {
         this.characters = characters;
         this.context = context;
     }
@@ -56,8 +56,11 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
             // Cambiar el fondo al hacer clic para simular un "toque"
             view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorToque));  // Color de fondo al tocar
 
-            // Mostrar el Toast con el nombre del personaje
-            Toast.makeText(context, "Se ha seleccionado el personaje " + currentCharacter.getName(), Toast.LENGTH_SHORT).show();
+            // Obtener la cadena del recurso y concatenar el nombre del personaje
+            String message = context.getString(R.string.app_select_character) +" "+ currentCharacter.getName();
+
+            // Mostrar el Toast con el mensaje
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
             // Animación de escala para el toque
             view.animate().scaleX(0.90f).scaleY(0.90f).setDuration(250).withEndAction(() -> {

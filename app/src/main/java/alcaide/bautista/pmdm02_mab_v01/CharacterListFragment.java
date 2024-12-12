@@ -31,9 +31,12 @@ public class CharacterListFragment extends Fragment {
 
         binding = CharacterListFragmentBinding.inflate(inflater, container, false);
 
-        // Mostrar el Snackbar cuando se cargue la lista
-        Snackbar.make(binding.getRoot(), "Bienvenidos al mundo de Mario", Snackbar.LENGTH_SHORT).show();
+// Mostrar el Snackbar con el welcome_message
+        Snackbar.make(binding.getRoot(), getString(R.string.welcome_message), Snackbar.LENGTH_SHORT).show();
+
+// Devolver la raíz del binding (si es necesario en tu flujo)
         return binding.getRoot();
+
     }
 
     @Override

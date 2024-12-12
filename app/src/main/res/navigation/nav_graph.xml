@@ -11,7 +11,11 @@
         android:name="alcaide.bautista.pmdm02_mab_v01.CharacterDetailFragment"
         android:label="CharacterDetailFragment"
         tools:layout="@layout/character_detail_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_characterDetailFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/characterListFragment"
