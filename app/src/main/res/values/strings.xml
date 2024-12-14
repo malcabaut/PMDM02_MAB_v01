@@ -8,7 +8,7 @@
     <string name="app_character_description">descripción</string>
     <string name="app_character_skills">habilidades</string>
     <string name="app_about">Acerca de …</string>
-    <string name="app_about_info"> <![CDATA[Aplicación desarrollada por <b>Miguel Alcaide Bautista</b>.<br>Versión 0.90]]></string>
+    <string name="app_about_info"> <![CDATA[Aplicación desarrollada por <b>Miguel Alcaide Bautista</b>.<br>Versión 1]]></string>
     <string name="app_open_drawer">Abrir menú</string>
     <string name="app_close_drawer">Cerrar menú</string>
     <string name="app_change_language">change to english</string>

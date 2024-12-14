@@ -1,7 +1,6 @@
 package alcaide.bautista.pmdm02_mab_v01;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 /**
  * Clase para gestionar las preferencias de idioma de la aplicación.

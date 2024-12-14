@@ -91,12 +91,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Configurar el SwitchCompat para cambiar el idioma
-        View headerView = binding.navView.getHeaderView(0);
-
         // Encuentra el SwitchCompat dentro del item personalizado
         MenuItem switchLanguageItem = binding.navView.getMenu().findItem(R.id.nav_switch_language);
         View actionView = switchLanguageItem.getActionView();
+        assert actionView != null;
         androidx.appcompat.widget.SwitchCompat switchLanguage = actionView.findViewById(R.id.switch_language);
 
         // Configurar el estado inicial del SwitchCompat basado en las preferencias guardadas
