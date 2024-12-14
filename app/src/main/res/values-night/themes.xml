@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PMDM02_MAB_v01" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.PMDM02_MAB_v01" parent="Theme.Material3.DayNight">
         <!-- Para API < 31: Pongo una imagen de fondo centrada para simular la SplashScreen -->
         <item name="android:windowBackground">@drawable/splashscreen_mario_layer</item>
     </style>
+
+    <style name="MyMenuTextStyle" parent="Theme.Material3.Dark">
+        <item name="android:fontFamily">@font/super_mario</item>
+        <item name="android:textColor">@color/red_DD</item>
+    </style>
+
 </resources>
