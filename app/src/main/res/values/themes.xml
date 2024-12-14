@@ -8,6 +8,7 @@
     <style name="MyMenuTextStyle" parent="Theme.Material3.DayNight">
         <item name="android:background">@drawable/pipe_06</item>
         <item name="android:fontFamily">@font/super_mario</item>
+
     </style>
 
 
