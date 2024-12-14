@@ -1,4 +1,5 @@
 package alcaide.bautista.pmdm02_mab_v01;
+
 import static java.util.Objects.requireNonNull;
 
 import android.os.Bundle;
@@ -18,41 +19,72 @@ import java.util.Arrays;
 
 import alcaide.bautista.pmdm02_mab_v01.databinding.CharacterListFragmentBinding;
 
+/**
+ * Fragmento que muestra una lista de personajes en una RecyclerView.
+ * Este fragmento carga y muestra una lista de personajes en el interfaz de usuario,
+ * configurando también un mensaje de bienvenida a través de un Snackbar.
+ * Además, se encarga de ajustar el título del ActionBar cuando la actividad comienza.
+ */
 public class CharacterListFragment extends Fragment {
 
+    // Objeto de binding para la vista del fragmento
     private CharacterListFragmentBinding binding;
+
+    // Lista que contiene los personajes a mostrar
     private ArrayList<CharacterData> characters;
 
+    /**
+     * Método que se llama para crear la vista del fragmento.
+     * Se infla el layout del fragmento y se muestra un mensaje de bienvenida utilizando un Snackbar.
 
+     * @param inflater           El inflador de la vista.
+     * @param container          El contenedor en el que se va a mostrar la vista.
+     * @param savedInstanceState El estado previamente guardado de la instancia (si existe).
+     * @return La vista inflada para este fragmento.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        // Inflar el layout utilizando el binding generado
         binding = CharacterListFragmentBinding.inflate(inflater, container, false);
 
-// Mostrar el Snackbar con el welcome_message
+        // Mostrar el mensaje de bienvenida utilizando un Snackbar
         Snackbar.make(binding.getRoot(), getString(R.string.welcome_message), Snackbar.LENGTH_SHORT).show();
 
-// Devolver la raíz del binding (si es necesario en tu flujo)
+        // Retornar la raíz del binding, que es la vista principal del fragmento
         return binding.getRoot();
-
     }
 
+    /**
+     * Método que se llama después de que la vista ha sido creada.
+     * En este método, se carga la lista de personajes y se configura el adaptador para la RecyclerView.
+     * @param view               La vista inflada para el fragmento.
+     * @param savedInstanceState El estado previamente guardado de la instancia (si existe).
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        // Cargar los personajes en la lista
         loadCharacters();
 
-
+        // Crear un adaptador para la RecyclerView con la lista de personajes y la actividad actual
         CharacterRecyclerViewAdapter adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
+
+        // Establecer un LinearLayoutManager para la RecyclerView, para una vista en lista vertical
         binding.charactersRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Establecer el adaptador en la RecyclerView
         binding.charactersRecyclerview.setAdapter(adapter);
-
-
     }
+
+    /**
+     * Método que carga los personajes en la lista de personajes.
+     * Cada personaje se crea utilizando datos como nombre, imagen, descripción, habilidades, sonidos y fondo.
+     * Este método podría ser modificado para cargar los datos desde una base de datos o una API.
+     */
 
     private void loadCharacters() {
         characters = new ArrayList<>();
@@ -157,12 +189,15 @@ public class CharacterListFragment extends Fragment {
         ));
     }
 
-
-
+    /**
+     * Método que se llama cuando el fragmento es visible y está listo para interactuar con el usuario.
+     * Aquí se cambia el título del ActionBar para reflejar el contexto actual.
+     */
     @Override
     public void onStart() {
         super.onStart();
-        // Cambia el título del ActionBar
+
+        // Cambiar el título del ActionBar para este fragmento
         if (getActivity() != null) {
             requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(R.string.app_character_list);
         }
